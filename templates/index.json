@@ -749,66 +749,62 @@
         "padding-block-end": 64
       }
     },
-    "hero_w6dGMz": {
+    "hero_XmAMrf": {
       "type": "hero",
       "blocks": {
-        "spacer_aAGgkJ": {
-          "type": "spacer",
+        "text_pWd4Nm": {
+          "type": "text",
           "settings": {
-            "size": "pixel",
-            "percent_size": 100,
-            "pixel_size": 24,
-            "custom_mobile_size": false,
-            "size_mobile": "percent",
-            "percent_size_mobile": 100,
-            "pixel_size_mobile": 120
+            "text": "<h2>New arrivals</h2>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "h1",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
           "blocks": {}
         },
-        "marquee_UF9UUw": {
-          "type": "_marquee",
+        "text_z6wrrk": {
+          "type": "text",
           "settings": {
-            "movement_direction": "normal",
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "transparent_background": true,
-            "padding-block-start": 24,
-            "padding-block-end": 24,
-            "gap_between_elements": 24
+            "text": "<p>Made with care and unconditionally loved by our customers.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 32,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
           },
-          "blocks": {
-            "text_e3eaCN": {
-              "type": "text",
-              "settings": {
-                "text": "<p>Explore our latest products.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h1",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "text_e3eaCN"
-          ]
+          "blocks": {}
         },
-        "button_Gk3zxi": {
+        "button_LCMzpa": {
           "type": "button",
+          "name": "t:names.button",
           "settings": {
             "label": "Shop now",
             "link": "shopify://collections/all",
@@ -823,11 +819,11 @@
         }
       },
       "block_order": [
-        "spacer_aAGgkJ",
-        "marquee_UF9UUw",
-        "button_Gk3zxi"
+        "text_pWd4Nm",
+        "text_z6wrrk",
+        "button_LCMzpa"
       ],
-      "name": "t:names.hero_marquee",
+      "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
         "media_type_2": "image",
@@ -843,8 +839,8 @@
         "vertical_alignment": "center",
         "align_baseline": false,
         "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "space-between",
-        "gap": 32,
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
         "section_width": "page-width",
         "section_height": "large",
         "section_height_custom": 50,
@@ -855,7 +851,7 @@
         "gradient_direction": "to top",
         "blurred_reflection": false,
         "reflection_opacity": 75,
-        "padding-block-start": 0,
+        "padding-block-start": 40,
         "padding-block-end": 40
       }
     }
@@ -865,6 +861,6 @@
     "product_list_EDUBdR",
     "media_with_content_LfPdEJ",
     "collection_list_xpBxCm",
-    "hero_w6dGMz"
+    "hero_XmAMrf"
   ]
 }
