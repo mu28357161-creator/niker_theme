@@ -59,36 +59,42 @@
         "tile_1": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "custom_label": "White Mugs"
           }
         },
         "tile_2": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "custom_label": "Tumblers & Bottles"
           }
         },
         "tile_3": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "custom_label": "Gift Boxes"
           }
         },
         "tile_4": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "custom_label": "Notebooks"
           }
         },
         "tile_5": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "custom_label": "T-Shirts"
           }
         },
         "tile_6": {
           "type": "collection",
           "settings": {
+            "collection": "",
             "custom_label": "Flip Flops"
           }
         }
@@ -117,6 +123,7 @@
       "type": "featured-products",
       "settings": {
         "heading": "FIND THE PERFECT GIFT",
+        "collection": "",
         "products_count": 8
       }
     },
