@@ -1,0 +1,68 @@
+<div class="personalization-field">
+  <label class="personalization-field__label" for="personalization-input">
+    Personalization / Custom Instructions
+  </label>
+  <textarea
+    class="personalization-field__input"
+    id="personalization-input"
+    name="properties[Personalization]"
+    placeholder="e.g. John Smith, Happy Birthday Sarah!"
+    rows="3"
+  ></textarea>
+  <p class="personalization-field__helper">
+    Please enter exactly what you want printed, including capitalization and spacing.
+  </p>
+</div>
+
+<style>
+  .personalization-field {
+    margin: 20px 0;
+  }
+
+  .personalization-field__label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+  }
+
+  .personalization-field__input {
+    display: block;
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    padding: 10px 12px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #333333;
+    resize: vertical;
+    box-sizing: border-box;
+    background: #ffffff;
+    transition: border-color 200ms ease;
+    line-height: 1.5;
+  }
+
+  .personalization-field__input::placeholder {
+    color: #aaaaaa;
+    font-style: italic;
+  }
+
+  .personalization-field__input:focus {
+    border-color: #e8192c;
+    outline: none;
+  }
+
+  .personalization-field__helper {
+    margin: 6px 0 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #888888;
+    font-style: italic;
+    line-height: 1.5;
+  }
+</style>

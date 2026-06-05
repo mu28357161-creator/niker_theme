@@ -1,0 +1,328 @@
+<style>
+  /* ============================================================
+     FOOTER — section background & top border
+  ============================================================ */
+  .footer-section .section-background,
+  .footer-section > .section-background {
+    background-color: #1a1a2e !important;
+  }
+
+  footer .section,
+  .footer-section .section,
+  .footer-section .section--full-width,
+  .footer-section .section--large,
+  .footer-section .section--medium,
+  .footer-section .section--small {
+    background-color: #1a1a2e;
+    color: rgba(255, 255, 255, 0.75);
+    border-top: 3px solid #e8192c;
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+
+  /* Catch-all for Tinker's color scheme classes applied to footer */
+  footer [class*='color-'] {
+    background-color: #1a1a2e;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* ============================================================
+     FOOTER CONTENT — 4-column grid
+  ============================================================ */
+  .footer-content {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 40px !important;
+    align-items: start !important;
+  }
+
+  /* ============================================================
+     COLUMN HEADINGS — Montserrat uppercase + red underline bar
+  ============================================================ */
+  .menu__heading,
+  .menu__heading__default,
+  .email-signup__heading,
+  footer .text-block p:first-child,
+  footer h2,
+  footer h3,
+  footer h4 {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 10px !important;
+    position: relative !important;
+  }
+
+  /* Red underline bar via pseudo-element */
+  .menu__heading::after,
+  .menu__heading__default::after,
+  .email-signup__heading::after,
+  footer h2::after,
+  footer h3::after,
+  footer h4::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #e8192c;
+    margin-top: 8px;
+  }
+
+  /* ============================================================
+     NAVIGATION / MENU LINKS
+  ============================================================ */
+  .menu .list-unstyled,
+  footer .list-unstyled {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .menu__item,
+  .menu__item a,
+  footer .list-unstyled li a,
+  footer .list-unstyled li {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    line-height: 2.2 !important;
+    text-decoration: none !important;
+    display: block;
+    transition: color 200ms ease, padding-left 200ms ease !important;
+  }
+
+  .menu__item a:hover,
+  footer .list-unstyled li a:hover {
+    color: #ffffff !important;
+    padding-left: 4px !important;
+  }
+
+  /* ============================================================
+     LOGO — invert to white
+  ============================================================ */
+  footer .logo-block__image,
+  footer .header-logo__image,
+  footer img[class*='logo'] {
+    filter: brightness(0) invert(1);
+    max-height: 50px;
+    width: auto;
+  }
+
+  /* ============================================================
+     SOCIAL ICONS
+  ============================================================ */
+  .social-icons__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .social-icons__icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 200ms ease;
+    text-decoration: none;
+  }
+
+  .social-icons__icon-wrapper:hover {
+    background: #e8192c;
+  }
+
+  .social-icons__icon,
+  .social-icons__icon svg {
+    width: 15px;
+    height: 15px;
+    fill: #ffffff;
+    color: #ffffff;
+  }
+
+  .social-icons__icon-label {
+    display: none;
+  }
+
+  /* ============================================================
+     EMAIL SIGNUP BLOCK
+  ============================================================ */
+  .email-signup-block {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Description text under newsletter heading */
+  .email-signup-block .text-block,
+  .email-signup-block p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  /* Input + button row */
+  .email-signup__input-group,
+  .email-signup__input-group--integrated {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+  }
+
+  .email-signup__input,
+  .email-signup__input--integrated,
+  .email-signup__input--default {
+    flex: 1 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-right: none !important;
+    color: #ffffff !important;
+    padding: 10px 14px !important;
+    border-radius: 3px 0 0 3px !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 13px !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .email-signup__input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .email-signup__input:focus {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+  }
+
+  .email-signup__button,
+  .email-signup__button--integrated {
+    background-color: #e8192c !important;
+    color: #ffffff !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    padding: 10px 18px !important;
+    border-radius: 0 3px 3px 0 !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background-color 200ms ease !important;
+    white-space: nowrap !important;
+  }
+
+  .email-signup__button:hover,
+  .email-signup__button--integrated:hover {
+    background-color: #c0141f !important;
+  }
+
+  /* Success / error messages */
+  .email-signup__message {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 8px;
+  }
+
+  /* ============================================================
+     FOOTER UTILITIES BAR — bottom copyright row
+  ============================================================ */
+  .utilities,
+  [class*='utilities--blocks'] {
+    background-color: #1a1a2e !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-top: 40px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+
+  .footer-utilities__group-copyright,
+  .footer-utilities__text {
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 12px !important;
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+
+  .footer-utilities__text a {
+    color: rgba(255, 255, 255, 0.5) !important;
+    text-decoration: none !important;
+    transition: color 200ms ease !important;
+  }
+
+  .footer-utilities__text a:hover {
+    color: #ffffff !important;
+  }
+
+  /* Payment icons placeholder row */
+  .footer-payment-icons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .footer-payment-icons__label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-right: 4px;
+  }
+
+  .footer-payment-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 7px;
+    border-radius: 3px;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  /* ============================================================
+     RESPONSIVE — tablet: 2 columns
+  ============================================================ */
+  @media screen and (max-width: 1024px) and (min-width: 750px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  /* ============================================================
+     RESPONSIVE — mobile: 1 column
+  ============================================================ */
+  @media screen and (max-width: 749px) {
+    .footer-content {
+      grid-template-columns: 1fr !important;
+      gap: 32px !important;
+    }
+
+    .utilities,
+    [class*='utilities--blocks'] {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+    }
+
+    .footer-payment-icons {
+      justify-content: flex-start;
+    }
+  }
+</style>

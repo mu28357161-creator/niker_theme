@@ -1,0 +1,172 @@
+<style>
+  /* ============================================================
+     HEADER WRAPPER — sticky, white background, bottom border
+  ============================================================ */
+  .header-section {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .header {
+    background-color: #ffffff;
+  }
+
+  /* Ensure sticky state keeps white background */
+  .header[data-sticky-state],
+  .header[data-sticky-state='active'],
+  .header[data-sticky-state='idle'] {
+    background-color: #ffffff;
+  }
+
+  /* ============================================================
+     LOGO — max height 60px
+  ============================================================ */
+  .header-logo__image {
+    max-height: 60px;
+    width: auto;
+  }
+
+  .header-logo__image-container {
+    display: flex;
+    align-items: center;
+  }
+
+  /* ============================================================
+     DESKTOP NAVIGATION LINKS
+  ============================================================ */
+  .menu-list__link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1a1a2e;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .menu-list__link:hover,
+  .menu-list__link:focus {
+    color: #e8192c;
+    text-decoration: none;
+  }
+
+  .menu-list__link--active,
+  .menu-list__link--active:hover {
+    color: #e8192c;
+  }
+
+  .menu-list__link-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* ============================================================
+     MEGA MENU LINKS
+  ============================================================ */
+  .mega-menu__link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1a1a2e;
+    text-decoration: none;
+  }
+
+  .mega-menu__link:hover {
+    color: #e8192c;
+    text-decoration: none;
+  }
+
+  .mega-menu__link--parent {
+    color: #1a1a2e;
+    font-weight: 700;
+  }
+
+  /* ============================================================
+     HEADER ACTION ICONS (search, account, cart)
+  ============================================================ */
+  .header__icon,
+  .header-actions__action {
+    color: #1a1a2e;
+  }
+
+  .header__icon svg,
+  .header-actions__action svg,
+  .search-action svg,
+  .account-button__icon svg,
+  .header-actions__cart-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #1a1a2e;
+    fill: none;
+    stroke: currentColor;
+  }
+
+  .header__icon:hover svg,
+  .header-actions__action:hover svg {
+    color: #e8192c;
+  }
+
+  /* ============================================================
+     CART BUBBLE / ITEM COUNT BADGE
+  ============================================================ */
+  .cart-bubble {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%;
+  }
+
+  .cart-bubble__background {
+    background-color: #e8192c;
+    border-radius: 50%;
+  }
+
+  .cart-bubble__text,
+  .cart-bubble__text-count {
+    font-size: 10px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  /* ============================================================
+     MOBILE DRAWER NAV LINKS
+  ============================================================ */
+  .menu-drawer__menu-item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #1a1a2e;
+    text-decoration: none;
+  }
+
+  .menu-drawer__menu-item:hover {
+    color: #e8192c;
+    text-decoration: none;
+  }
+
+  .menu-drawer__menu-item--active {
+    color: #e8192c;
+  }
+
+  .menu-drawer__menu-item-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+</style>

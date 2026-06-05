@@ -1,0 +1,296 @@
+<style>
+  /* ============================================================
+     COLLECTION PAGE — title / heading
+  ============================================================ */
+  .collection-header h1,
+  .collection-header .collection__title,
+  .section--collection-header h1,
+  main h1.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1a1a2e;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  /* ============================================================
+     COLLECTION PAGE — description
+  ============================================================ */
+  .collection-description,
+  .collection-header .rte,
+  .section--collection-header .rte,
+  main .collection__description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #666666;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     FILTER / SORT BAR
+  ============================================================ */
+  .sorting-filter,
+  .sorting-filter__horizontal {
+    background: #f8f8f8;
+    padding: 14px 20px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* Filter label */
+  .facets__label,
+  .sorting-filter .facets__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a2e;
+  }
+
+  /* Sort select dropdown */
+  .sorting-filter__select,
+  .sorting-filter__select-wrapper select {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #1a1a2e;
+    border: 1px solid #e0e0e0;
+    padding: 8px 12px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    appearance: auto;
+    outline: none;
+    transition: border-color 200ms ease;
+  }
+
+  .sorting-filter__select:focus,
+  .sorting-filter__select-wrapper select:focus {
+    border-color: #1a1a2e;
+  }
+
+  /* Sort options popover (custom dropdown) */
+  .sorting-filter__options {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .sorting-filter__option {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #1a1a2e;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background 150ms ease, color 150ms ease;
+  }
+
+  .sorting-filter__option:hover {
+    background: #f8f8f8;
+    color: #e8192c;
+  }
+
+  /* ============================================================
+     FILTER PANELS — accordion headings
+  ============================================================ */
+  .facets__summary {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #1a1a2e;
+    cursor: pointer;
+  }
+
+  /* Active filter count bubble */
+  .facets__bubble {
+    background-color: #e8192c;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+  }
+
+  /* Filter option labels */
+  .facets__inputs-list-item label,
+  .facets__inputs-list-item .facets__pill-label {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    color: #333333;
+    cursor: pointer;
+    transition: color 150ms ease;
+  }
+
+  .facets__inputs-list-item label:hover,
+  .facets__inputs-list-item .facets__pill-label:hover {
+    color: #e8192c;
+  }
+
+  /* Active filter pill */
+  .facets-remove__pill,
+  .pills__pill {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: #1a1a2e;
+    background: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    border-radius: 30px;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: background 150ms ease, border-color 150ms ease;
+  }
+
+  .facets-remove__pill:hover,
+  .pills__pill:hover {
+    background: #fdedef;
+    border-color: #e8192c;
+    color: #e8192c;
+  }
+
+  /* ============================================================
+     PRODUCT GRID — 4 col desktop
+  ============================================================ */
+  .product-grid,
+  .collection .product-grid,
+  .section--collection .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+  }
+
+  /* ============================================================
+     RESPONSIVE — tablet: 2 columns
+  ============================================================ */
+  @media screen and (max-width: 1024px) and (min-width: 550px) {
+    .product-grid,
+    .collection .product-grid,
+    .section--collection .product-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+
+  /* ============================================================
+     RESPONSIVE — mobile: 2 columns
+  ============================================================ */
+  @media screen and (max-width: 549px) {
+    .product-grid,
+    .collection .product-grid,
+    .section--collection .product-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+
+    .sorting-filter,
+    .sorting-filter__horizontal {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  }
+
+  /* ============================================================
+     PAGINATION
+  ============================================================ */
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+  }
+
+  .pagination__list {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Page number links */
+  .pagination__link,
+  .pagination__link--page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+    background: #ffffff;
+  }
+
+  .pagination__link:hover,
+  .pagination__link--page:hover {
+    border-color: #e8192c;
+    color: #e8192c;
+    text-decoration: none;
+  }
+
+  /* Active / current page */
+  .pagination__link--current,
+  .pagination__item .pagination__link[aria-current="page"] {
+    background-color: #1a1a2e;
+    border-color: #1a1a2e;
+    color: #ffffff;
+    pointer-events: none;
+  }
+
+  /* Prev / next arrows */
+  .pagination__link--arrow {
+    width: 38px;
+    height: 38px;
+    border-color: #e0e0e0;
+  }
+
+  .pagination__link--arrow:hover {
+    border-color: #e8192c;
+    color: #e8192c;
+  }
+
+  /* Disabled prev/next */
+  .pagination__link--disabled {
+    opacity: 0.3;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  /* Gap / ellipsis */
+  .pagination__link--gap {
+    border: none;
+    color: #999999;
+    cursor: default;
+    width: 20px;
+  }
+
+  .pagination__link--gap:hover {
+    border: none;
+    color: #999999;
+  }
+</style>
