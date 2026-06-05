@@ -1,0 +1,263 @@
+{%- liquid
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+  assign on_sale = false
+  if product.compare_at_price > product.price
+    assign on_sale = true
+  endif
+
+  assign is_new = false
+  assign now_ts     = 'now' | date: '%s' | plus: 0
+  assign created_ts = product.created_at | date: '%s' | plus: 0
+  assign age_seconds = now_ts | minus: created_ts
+  if age_seconds < 2592000
+    assign is_new = true
+  endif
+
+  assign first_variant     = product.selected_or_first_available_variant
+  assign is_single_variant = false
+  if product.variants.size == 1 and product.variants.first.title == 'Default Title'
+    assign is_single_variant = true
+  endif
+-%}
+
+<div class="mpc">
+
+  {%- comment -%} Image + badges {%- endcomment -%}
+  <a class="mpc__image-link" href="{{ product.url }}" aria-label="{{ product.title | escape }}">
+    <div class="mpc__image-wrap">
+      {%- if product.featured_image != blank -%}
+        {{
+          product.featured_image
+          | image_url: width: 600
+          | image_tag:
+            loading: 'lazy',
+            class: 'mpc__img',
+            widths: '300,400,500,600',
+            sizes: '(max-width: 749px) 50vw, 25vw',
+            alt: product.featured_image.alt | default: product.title | escape
+        }}
+      {%- else -%}
+        <div class="mpc__img-placeholder">
+          {{ 'product-1' | placeholder_svg_tag: 'mpc__placeholder-svg' }}
+        </div>
+      {%- endif -%}
+
+      {%- if on_sale -%}
+        <span class="mpc__badge mpc__badge--sale">SALE</span>
+      {%- elsif is_new -%}
+        <span class="mpc__badge mpc__badge--new">NEW</span>
+      {%- endif -%}
+    </div>
+  </a>
+
+  {%- comment -%} Card info {%- endcomment -%}
+  <div class="mpc__info">
+
+    <a class="mpc__title-link" href="{{ product.url }}">
+      <p class="mpc__title">{{ product.title }}</p>
+    </a>
+
+    <div class="mpc__pricing">
+      {%- if on_sale -%}
+        <span class="mpc__compare-price">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+      <span class="mpc__price">{{ product.price | money }}</span>
+    </div>
+
+    {%- if is_single_variant and first_variant.available -%}
+      <form action="/cart/add" method="post" class="mpc__form">
+        <input type="hidden" name="id" value="{{ first_variant.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="mpc__atc-btn">Add to Cart</button>
+      </form>
+    {%- elsif first_variant.available == false -%}
+      <span class="mpc__atc-btn mpc__atc-btn--soldout" aria-disabled="true">Sold Out</span>
+    {%- else -%}
+      <a href="{{ product.url }}" class="mpc__atc-btn">Add to Cart</a>
+    {%- endif -%}
+
+  </div>
+</div>
+
+<style>
+  /* ============================================================
+     MUGSHOT PRODUCT CARD (.mpc) — outer wrapper
+  ============================================================ */
+  .mpc {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ============================================================
+     IMAGE LINK + WRAPPER
+  ============================================================ */
+  .mpc__image-link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .mpc__image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #f0f0f0;
+  }
+
+  .mpc__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 400ms ease;
+  }
+
+  .mpc:hover .mpc__img {
+    transform: scale(1.05);
+  }
+
+  /* Placeholder */
+  .mpc__img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #efefef;
+  }
+
+  .mpc__placeholder-svg {
+    width: 55%;
+    height: 55%;
+    opacity: 0.3;
+  }
+
+  /* ============================================================
+     BADGES — SALE / NEW
+  ============================================================ */
+  .mpc__badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 2px;
+    line-height: 1.4;
+    z-index: 1;
+  }
+
+  .mpc__badge--sale { background-color: #e8192c; }
+  .mpc__badge--new  { background-color: #1a1a2e; }
+
+  /* ============================================================
+     CARD INFO
+  ============================================================ */
+  .mpc__info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-top: 10px;
+  }
+
+  /* Title — two-line clamp */
+  .mpc__title-link {
+    text-decoration: none;
+  }
+
+  .mpc__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0 0 6px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .mpc__title-link:hover .mpc__title {
+    color: #e8192c;
+  }
+
+  /* ============================================================
+     PRICING
+  ============================================================ */
+  .mpc__pricing {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+
+  .mpc__compare-price {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    color: #999999;
+    text-decoration: line-through;
+  }
+
+  .mpc__price {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #e8192c;
+  }
+
+  /* ============================================================
+     ADD TO CART BUTTON
+  ============================================================ */
+  .mpc__form {
+    margin-top: auto;
+  }
+
+  .mpc__atc-btn {
+    display: block;
+    width: 100%;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 9px;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 300ms ease;
+    box-sizing: border-box;
+    line-height: 1.4;
+  }
+
+  .mpc__atc-btn:hover,
+  .mpc__atc-btn:focus {
+    background-color: #e8192c;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .mpc__atc-btn--soldout {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+</style>
